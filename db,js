@@ -1,0 +1,16 @@
+const mongoose=require("mongoose");
+mongoose.set('strictQuery', false)
+const dbUrl ="mongodb+srv://follyb:Alabi2810@cluster0.han9mga.mongodb.net/employee_db?retryWrites=true&w=majority"
+ const currentDb=async()=>{
+    try{
+        const current = await mongoose.connect(dbUrl,{
+             useNewUrlParser: true, 
+             useUnifiedTopology: true })
+        console.log(`mongoosse conec${current.connection.host}t`)
+    }catch(err){
+        console.log(err)
+        
+    }
+ }
+
+module.exports=currentDb
